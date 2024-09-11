@@ -9,7 +9,7 @@ spec:
     environment: dev
     tier: web
   ports:
-    - protocol: tcp
+    - protocol: TCP # UPPERCASE only
       port: 80 # service-port or clusterIP port
       targetPort: 80 # port of target container/pod(here-->nginx)
   type: ClusterIP   # Exposes the service internally within the pod n/w
