@@ -12,4 +12,4 @@ spec:
     - protocol: tcp
       port: 80 # service-port or clusterIP port
       targetPort: 80 # port of target container/pod(here-->nginx)
-      type: ClusterIP   # Exposes the service internally within the pod n/w
+  type: ClusterIP   # Exposes the service internally within the pod n/w
