@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:     # labels should bring uniqueness to this pod, helps in discovery by a service
+    name: frontend
+    project: expense
+    environment: dev
+    tier: web
+spec:
+  containers:
+    - name: nginx     # hyphen indicates the start of the container list
+      image: nginx

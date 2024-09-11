@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  selector: # service is going to select a pod where it finds these labels
+    name: frontend
+    project: expense
+    environment: dev
+    tier: web
+  ports:
+    - protocol: tcp
+      port: 80 # service-port or clusterIP port
+      targetPort: 80 # port of target container/pod(here-->nginx)
