@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-loadbalancer
+spec:
+  selector: # service is going to select a pod where it finds these labels
+    name: frontend
+    project: expense
+    environment: dev
+    tier: web
+  ports:
+    - protocol: TCP # UPPERCASE only
+      port: 80 # service-port or clusterIP port
+      targetPort: 80 # port of target container/pod(here-->nginx)
+      nodePort: 30002
+  type: LoadBalancer  # Exposes the service to internet, listens on a port no. of node/ec2.
+
+
+# TEMPLATE
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: my-service
+# spec:
+#   selector:
+#     app.kubernetes.io/name: MyApp
+#   ports:
+#     - protocol: TCP
+#       port: 80
+#       targetPort: 9376
+#   clusterIP: 10.0.171.239
+#   type: LoadBalancer
+# status:
+#   loadBalancer:
+#     ingress:
+#     - ip: 192.0.2.127
